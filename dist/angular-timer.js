@@ -11,10 +11,10 @@ var timerModule = angular.module('timer', [])
       restrict: 'EA',
       replace: false,
       scope: {
-        interval: '=interval',
-        startTimeAttr: '=startTime',
-        endTimeAttr: '=endTime',
-        countdownattr: '=countdown',
+        interval: '@interval',
+        startTimeAttr: '@startTime',
+        endTimeAttr: '@endTime',
+        countdownattr: '@countdown',
         finishCallback: '&finishCallback',
         autoStart: '&autoStart',
         maxTimeUnit: '='
