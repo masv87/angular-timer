@@ -1,8 +1,8 @@
 /**
- * angular-timer - v1.2.0 - 2014-12-15 6:34 PM
+ * angular-timer - v1.2.0 - 2015-01-27 11:58 AM
  * https://github.com/siddii/angular-timer
  *
- * Copyright (c) 2014 Siddique Hameed
+ * Copyright (c) 2015 Siddique Hameed
  * Licensed MIT <https://github.com/siddii/angular-timer/blob/master/LICENSE.txt>
  */
 var timerModule = angular.module('timer', [])
@@ -61,11 +61,11 @@ var timerModule = angular.module('timer', [])
         $scope.$on('timer-clear', function () {
           $scope.clear();
         });
-        
+
         $scope.$on('timer-reset', function () {
           $scope.reset();
         });
-        
+
         $scope.$on('timer-set-countdown', function (e, countdown) {
           $scope.countdown = countdown;
         });
@@ -120,7 +120,7 @@ var timerModule = angular.module('timer', [])
           $scope.isRunning = false;
           $scope.clear();
         };
-        
+
         $element.bind('$destroy', function () {
           resetTimeout();
           $scope.isRunning = false;

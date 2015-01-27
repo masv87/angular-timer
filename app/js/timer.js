@@ -4,10 +4,10 @@ var timerModule = angular.module('timer', [])
       restrict: 'EA',
       replace: false,
       scope: {
-        interval: '=interval',
-        startTimeAttr: '=startTime',
-        endTimeAttr: '=endTime',
-        countdownattr: '=countdown',
+        interval: '@interval',
+        startTimeAttr: '@startTime',
+        endTimeAttr: '@endTime',
+        countdownattr: '@countdown',
         finishCallback: '&finishCallback',
         autoStart: '&autoStart',
         maxTimeUnit: '='
@@ -54,11 +54,11 @@ var timerModule = angular.module('timer', [])
         $scope.$on('timer-clear', function () {
           $scope.clear();
         });
-        
+
         $scope.$on('timer-reset', function () {
           $scope.reset();
         });
-        
+
         $scope.$on('timer-set-countdown', function (e, countdown) {
           $scope.countdown = countdown;
         });
@@ -68,12 +68,6 @@ var timerModule = angular.module('timer', [])
             clearTimeout($scope.timeoutId);
           }
         }
-
-        $scope.$watch('startTimeAttr', function(newValue, oldValue) {
-          if (newValue !== oldValue && $scope.isRunning) {
-            $scope.start();
-          }
-        });
 
         $scope.start = $element[0].start = function () {
           $scope.startTime = $scope.startTimeAttr ? new Date($scope.startTimeAttr) : new Date();
@@ -119,7 +113,7 @@ var timerModule = angular.module('timer', [])
           $scope.isRunning = false;
           $scope.clear();
         };
-        
+
         $element.bind('$destroy', function () {
           resetTimeout();
           $scope.isRunning = false;
